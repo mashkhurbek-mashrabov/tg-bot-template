@@ -1,3 +1,4 @@
+import logging
 import traceback
 
 import telebot
@@ -10,6 +11,9 @@ from bot.constants import BotUserSteps, CallbackData
 from bot.controllers.main import BotController
 from bot.loader import bot
 from bot.utils import send_exception
+
+logger = telebot.logger
+telebot.logger.setLevel(logging.INFO)  # Outputs debug messages to console.
 
 
 @csrf_exempt

@@ -1,7 +1,13 @@
+import logging
+
+import telebot
 from telebot.types import KeyboardButton
 
 from bot.constants import BotUserSteps, LanguageChoices
 from bot.controllers.base import BaseController
+
+logger = telebot.logger
+telebot.logger.setLevel(logging.INFO)
 
 
 class BotController(BaseController):
