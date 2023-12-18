@@ -5,7 +5,7 @@ from telebot import types
 from telebot.types import KeyboardButton, InlineKeyboardButton, InlineKeyboardMarkup, ReplyKeyboardMarkup, \
     ReplyKeyboardRemove
 
-from bot.constants import BotUserSteps, CallbackData
+from bot.constants import BotUserSteps, CallbackData, EXCEPTION_CHANNEL_ID
 from bot.models import TelegramUser
 from bot.strings import messages
 
@@ -186,3 +186,11 @@ class BaseController:
             message_text = self.t(message_code)
 
         return self.send_message(message_text=message_text, reply_markup=ReplyKeyboardRemove())
+
+    def bug_fixed(self):
+        markup = self.inline_markup()
+        markup.add(InlineKeyboardButton(messages.get('true icon'), callback_data='None'))
+        self.bot.edit_message_text(chat_id=EXCEPTION_CHANNEL_ID,
+                                   text=self.message.message.text,
+                                   reply_markup=markup,
+                                   message_id=self.callback_query_id)

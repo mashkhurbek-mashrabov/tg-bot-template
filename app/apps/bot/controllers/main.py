@@ -12,6 +12,12 @@ class BotController(BaseController):
     def send_exception_message_to_user(self):
         step = self.step
 
+        if step in [BotUserSteps.LISTING_LANGUAGE, BotUserSteps.EDIT_LANGUAGE]:
+            self.list_language(text=self.t('press one button'),
+                               edit_lang=step == BotUserSteps.EDIT_LANGUAGE)
+        elif step == BotUserSteps.MAIN_MENU:
+            self.main_menu(text=self.t('press one button'))
+
     def back_reply_button_handler(self):
         step = self.step
 
