@@ -1,7 +1,6 @@
 import os
 
 from django.db import models
-from telebot.callback_data import CallbackData
 
 BOT_TOKEN = os.environ.get('BOT_TOKEN')
 EXCEPTION_CHANNEL_ID = os.environ.get('EXCEPTION_CHANNEL_ID')
@@ -23,4 +22,3 @@ class CallbackData:
     BACK_BUTTON = 'BACK_BUTTON'
     SKIP = 'SKIP'
     EXCEPTION = 'EXCEPTION'
-    test = CallbackData()
