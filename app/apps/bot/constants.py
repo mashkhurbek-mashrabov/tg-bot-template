@@ -12,7 +12,8 @@ class LanguageChoices(models.TextChoices):
 
 class BotUserSteps(models.IntegerChoices):
     LISTING_LANGUAGE = 1, 'Listing language'
-    MAIN_MENU = 2, 'Main menu'
+    EDIT_LANGUAGE = 2, 'Edit language'
+    MAIN_MENU = 3, 'Main menu'
 
 
 class CallbackData:
