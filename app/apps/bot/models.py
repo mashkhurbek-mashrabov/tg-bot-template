@@ -1,3 +1,4 @@
+from django.core.exceptions import ValidationError
 from django.db import models
 
 from bot.constants import LanguageChoices, BotUserSteps
@@ -28,3 +29,15 @@ class TelegramUser(BaseModel):
 
     def __str__(self):
         return f"{self.chat_id} - {self.name}"
+
+    def clean(self):
+        super().clean()
+        if self.step not in [step[0] for step in BotUserSteps.choices]:
+            raise ValueError("Invalid step value")
+
+        if self.language not in [lang[0] for lang in LanguageChoices.choices]:
+            raise ValueError("Invalid language value")
+
+    def save(self, *args, **kwargs):
+        self.full_clean()
+        super().save(*args, **kwargs)
