@@ -28,6 +28,7 @@ messages = {
         'saved your language': 'The chosen language has been saved.',
         'exception message': "🤕 I apologize for the inconvenience, but it seems like there was a minor malfunction in the bot.",
         'press one button': "Press one of the buttons",
+        'change language': 'Change language',
     },
     LanguageChoices.UZBEK: {
         'language flag': '🇺🇿',
@@ -38,5 +39,6 @@ messages = {
         'saved your language': 'Language saved, now we will talk using this language',
         'exception message': "🤕 Kechirasiz botimizda bir oz nosozlik yuzaga keldi.",
         'press one button': "Tugmalardan birini bosing",
+        'change language': "Tilni o'zgartirish",
     },
 }

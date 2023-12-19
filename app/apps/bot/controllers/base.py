@@ -1,3 +1,4 @@
+import traceback
 from typing import Optional, Union
 
 import telebot
@@ -12,10 +13,13 @@ from bot.strings import messages
 
 class BaseController:
     def __init__(self, message, bot: telebot.TeleBot):
-        self.bot = bot
-        self.message = message
-        self.user = TelegramUser.objects.get_or_create(chat_id=self.chat_id)[0]
-        self.step = self.user.step
+        try:
+            self.bot = bot
+            self.message = message
+            self.user = TelegramUser.objects.get_or_create(chat_id=self.chat_id)[0]
+            self.step = self.user.step
+        except:
+            print(traceback.format_exc())
 
     @property
     def chat_id(self):
