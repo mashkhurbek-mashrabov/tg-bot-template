@@ -36,10 +36,6 @@ services:
     volumes:
       - tg_bot_postgres_data:/var/lib/postgresql/data:Z
       - tg_bot_postgres_data_backups:/backups:z
-    environment:
-      - POSTGRES_USER=postgres
-      - POSTGRES_PASSWORD=root123
-      - POSTGRES_DB=tg_bot_template
     env_file:
       - ./.env
     networks:
