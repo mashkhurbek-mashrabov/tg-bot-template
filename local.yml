@@ -45,3 +45,14 @@ services:
     ports:
       - "5432:5432"
     command: -p 5432
+
+  redis:
+    image: redis:alpine3.18
+    container_name: tg_bot_redis_container
+    restart: unless-stopped
+    networks:
+      - tg_bot_network
+    expose:
+      - "6379"
+    ports:
+      - "6379:6379"
