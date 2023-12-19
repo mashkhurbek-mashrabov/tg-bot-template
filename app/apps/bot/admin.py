@@ -8,6 +8,8 @@ from django.utils.translation import gettext_lazy as _
 
 from bot.models import TelegramUser
 
+admin.site.site_header = _('Administration')
+
 
 @admin.register(TelegramUser)
 class TelegramUserAdmin(admin.ModelAdmin):
