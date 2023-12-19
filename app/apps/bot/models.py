@@ -25,7 +25,7 @@ class TelegramUser(BaseModel):
     name = models.CharField(max_length=40, null=True)
     language = models.CharField(max_length=3, choices=LanguageChoices.choices,
                                 default=LanguageChoices.ENGLISH)
-    step = models.SmallIntegerField(choices=BotUserSteps.choices)
+    step = models.SmallIntegerField(choices=BotUserSteps.choices, default=BotUserSteps.LISTING_LANGUAGE)
 
     def __str__(self):
         return f"{self.chat_id} - {self.name}"
@@ -39,5 +39,5 @@ class TelegramUser(BaseModel):
             raise ValueError("Invalid language value")
 
     def save(self, *args, **kwargs):
-        self.full_clean()
+        self.clean()
         super().save(*args, **kwargs)
