@@ -14,7 +14,7 @@ services:
       dockerfile: ./compose/local/Dockerfile
     image: tg_bot_django_image:latest
     container_name: tg_bot_django_container
-    restart: always
+    restart: unless-stopped
     command: python manage.py runserver 0.0.0.0:8000
     volumes:
       - static_data:/app/vol
@@ -31,7 +31,7 @@ services:
   postgres:
     image: postgres:15.5-alpine3.18
     container_name: tg_bot_postgres_container
-    restart: always
+    restart: unless-stopped
     volumes:
       - tg_bot_postgres_data:/var/lib/postgresql/data/
     environment:

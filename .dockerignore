@@ -26,5 +26,6 @@ web/static/CACHE
 stats
 Dockerfile
 staticfiles/
-vol/
+/app/vol/
+/app/venv/
 media/
