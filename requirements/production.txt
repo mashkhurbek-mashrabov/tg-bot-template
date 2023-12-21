@@ -4,3 +4,4 @@ psycopg2-binary==2.9.9
 pyTelegramBotAPI==4.14.0
 django-redis==5.4.0
 celery==5.3.6
+flower==2.0.1

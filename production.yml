@@ -12,7 +12,7 @@ services:
   django: &django
     build:
       context: .
-      dockerfile: ./compose/local/Dockerfile
+      dockerfile: ./compose/production/Dockerfile
     image: tg_bot_django_image:latest
     container_name: tg_bot_django_container
     restart: unless-stopped
