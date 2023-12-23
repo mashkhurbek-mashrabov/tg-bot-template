@@ -29,7 +29,7 @@ def webhook_handler(request):
         return HttpResponse(status=400)
 
 
-@bot.message_handler(chat_id=12345678, commands=['example'])
+@bot.message_handler(chat_id=[12345678], commands=['example'])
 def admin_message_handler(message: types.Message):
     pass
 
