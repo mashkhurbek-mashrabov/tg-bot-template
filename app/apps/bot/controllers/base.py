@@ -1,5 +1,5 @@
 import traceback
-from typing import Optional, Union
+from typing import Optional, Union, List
 
 import telebot
 from telebot import types
@@ -183,6 +183,21 @@ class BaseController:
             message_text = self.t(message_code)
 
         return self.bot.answer_callback_query(callback_query_id=message_id, text=message_text, show_alert=show_alert)
+
+    def set_message_reaction(self,
+                             reaction: Optional[List[types.ReactionType]] = None,
+                             is_big: Optional[bool] = None,
+                             chat_id: Union[int, str] = None,
+                             message_id: int = None,
+                             ) -> bool:
+
+        if not message_id:
+            message_id = self.message_id
+
+        if not chat_id:
+            chat_id = self.chat_id
+
+        return self.bot.set_message_reaction(chat_id, message_id, reaction, is_big)
 
     def remove_keyboard(self, message_code: str = None,
                         message_text: str = None) -> types.Message:
